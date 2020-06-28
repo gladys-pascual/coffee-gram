@@ -1,26 +1,97 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
 import './App.css';
+import Heading from './Components/Heading';
+import Dropdown from './Components/Dropdown'
+import CardList from './Components/CardList';
+import Footer from './Components/Footer'
+import coffeeList from './data'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      selection: 'all',
+      coffeeList: []
+    }
+  }
+
+  componentDidMount = () => {
+    this.setState({ coffeeList: coffeeList })
+  }
+
+  handleCoffeeChoice = (event) => {
+    this.setState({ selection: event.target.value })
+  }
+
+  chooseCoffee = () => {
+    let matchedCoffee;
+    if (this.state.selection === 'all') {
+      matchedCoffee = this.state.coffeeList;
+    } else if (this.state.selection === 'success') {
+      matchedCoffee = this.state.coffeeList.filter(coffee => coffee.success === true)
+    }
+    else {
+      matchedCoffee = this.state.coffeeList.filter(coffee => coffee.type === this.state.selection)
+    }
+    return matchedCoffee;
+  }
+
+
+
+  // handleDateChoice = (event) => {
+  //   this.setState({ selection: event.target.value })
+  // }
+
+  // chooseDate = () => {
+  //   let selectedCoffee;
+  //   if (this.state.selection === 'all') {
+  //     selectedCoffee = this.state.coffeeList
+  //   } else if (this.state.selection === 'Jul - Sep 2019') {
+  //     selectedCoffee = this.state.coffeeList.filter(coffee => {
+  //       return coffee.date >= 1561935600000 && coffee.date <= 1569884399000
+  //     })
+  //   }
+  //   else if (this.state.selection === 'Oct - Dec 2019') {
+  //     selectedCoffee = this.state.coffeeList.filter(coffee => {
+  //       return coffee.date >= 1569884400000 && coffee.date <= 1577836799000
+  //     })
+  //   }
+  //   return selectedCoffee;
+  // }
+
+  render() {
+    return (
+      <section className="app">
+        <Heading />
+
+        <Dropdown
+          heading={"Choose your art:"}
+          options={[
+            { label: 'All', value: 'all' },
+            { label: 'Successful Arts', value: 'success' },
+            { label: 'Unsuccessful Blobs', value: 'blob' },
+            { label: 'Hearts', value: 'heart' },
+            { label: 'Tulips', value: 'tulip' }
+          ]}
+          handleChoice={this.handleCoffeeChoice}
+        />
+        {/* <Dropdown
+          heading={"Choose your timeline"}
+          options={[
+            { label: 'All', value: 'all' },
+            { label: 'Jul - Sep 2019', value: 'Jul - Sep 2019' },
+            { label: 'Oct - Dec 2019', value: 'Oct - Dec 2019' },
+            { label: 'Jan - Mar 2020', value: 'Jan - Mar 2020' },
+            { label: 'Apr - June 2020', value: 'Apr - June 2020' }
+          ]}
+          handleChoice={this.handleDateChoice}
+        /> */}
+
+        <CardList coffee={this.chooseCoffee()} />
+        <Footer />
+      </section>
+    );
+  }
 }
 
 export default App;

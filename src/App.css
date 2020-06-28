@@ -1,38 +1,171 @@
-.App {
+*{
+  color: rgb(101, 101, 101);
+}
+
+h1{
+  text-align: center;
+  font-family: 'Pacifico', cursive; 
+  font-weight: 400;
+  font-size: 72px;
+  margin: 0px;
+  padding: 50px 10% 0px 10%;
+}
+
+
+
+h2{
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+  padding-left: 10%;
+  padding-right: 10%;
+}
+
+.coffee-image{
+  width: 250px;
+}
+
+.coffee-image img{
+  width: 100%;
+  border-radius: 4px;
+}
+
+.card-container{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 0px 15%;
+}
+
+.coffee-card{
+  border: solid 2px rgb(101, 101, 101);;
+  border-radius: 4px;
+  margin: 10px;
+  padding: 8px;
+}
+
+.coffee-card p{
+  font-family: 'Roboto', sans-serif;
+  margin: 2px;
+}
+
+
+.coffee-card:hover { 
+  animation: effect linear 0.5s; 
+} 
+
+@keyframes effect { 
+  0% { 
+      transform: scale(1, 1); 
+  } 
+  25% { 
+      transform: scale(1.3, 0.6); 
+  } 
+
+  50% { 
+      transform: scale(1.1, 0.9); 
+  } 
+  100% { 
+      transform: scale(1, 1); 
+  } 
+} 
+
+.dropdown{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 40px;
+}
+
+.dropdown h3 {
+  padding: 0px 20px;
+  margin: 0px;
+}
+
+.coffee-art {
+  width: 180px;
+  height: 30px;
+  color:rgb(101, 101, 101);
+  font-size: 16px;
+  font-family: 'Roboto', sans-serif;
+}
+
+
+/* Footer start */
+
+.footer-section{
+  background-color:rgb(101, 101, 101);
+  padding-bottom: 2%;
+}
+
+footer{
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+ul.footer-socials{
+  padding:30px 10px 5px 10px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.footer-socials li {
+  list-style-type: none;
+  padding:5px;
+  display: inline-block;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.footer-socials li a {
+  display: inline-block;
+  height: 44px;
+	width: 44px;
+	background-color: #ffffff;
+  color: #352103;
+	border-radius: 50%;
+	margin: 0 2px;
+	text-align: center;
+	line-height: 42px;
+	font-size: 28px;
+	transition: all .5s ease;
+}
+.footer-socials li a:hover{
+  box-shadow: 0 0 10px #000;
+}
+
+.go-to-top-parent{
+  padding: 10px;
+  text-transform: uppercase;
+}
+
+.go-to-top-parent:hover{
+  text-decoration: none;
+}
+
+.go-to-top i{
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.back-to-top{
+  font-family: 'Roboto', sans-serif;
+  color: white;
+  font-style: normal;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+/* Footer end */
+
+@media screen and (max-width:1000px) {
+  h1 {
+    font-size: 60px;
   }
-  to {
-    transform: rotate(360deg);
+}
+
+@media screen and (max-width:700px) {
+  h1 {
+    font-size: 48px;
+  }
+}
+
+@media screen and (max-width:400px) {
+  h1 {
+    font-size: 32px;
+  }
+  h2 {
+    font-size: 16px;
   }
 }
