@@ -25,7 +25,7 @@ const Footer = () => {
         </div>
 
         <div className="go-to-top-parent">
-          <a href="#" className="go-to-top">
+          <a href="#header" className="go-to-top">
             <span className="back-to-top">Back to Top</span>
           </a>
         </div>
