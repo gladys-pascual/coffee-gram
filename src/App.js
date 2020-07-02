@@ -10,7 +10,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      selection: 'all',
+      selection: 'success',
       coffeeList: []
     }
   }
@@ -25,10 +25,10 @@ class App extends Component {
 
   chooseCoffee = () => {
     let matchedCoffee;
-    if (this.state.selection === 'all') {
-      matchedCoffee = this.state.coffeeList;
-    } else if (this.state.selection === 'success') {
+    if (this.state.selection === 'success') {
       matchedCoffee = this.state.coffeeList.filter(coffee => coffee.success === true)
+    } else if (this.state.selection === 'all') {
+      matchedCoffee = this.state.coffeeList;
     }
     else {
       matchedCoffee = this.state.coffeeList.filter(coffee => coffee.type === this.state.selection)
@@ -67,11 +67,11 @@ class App extends Component {
         <Dropdown
           heading={"Choose your art:"}
           options={[
-            { label: 'All', value: 'all' },
             { label: 'Successful Arts', value: 'success' },
             { label: 'Unsuccessful Blobs', value: 'blob' },
             { label: 'Hearts', value: 'heart' },
-            { label: 'Tulips', value: 'tulip' }
+            { label: 'Tulips', value: 'tulip' },
+            { label: 'All', value: 'all' }
           ]}
           handleChoice={this.handleCoffeeChoice}
         />
