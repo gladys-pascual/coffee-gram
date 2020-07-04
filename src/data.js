@@ -656,7 +656,14 @@ const coffeeList = [
     imgUrl: 'https://i.imgur.com/6zSrhJS.jpg',
     type: 'tulip',
     success: true
-  }
+  },
+  {
+    key: 95,
+    date: 1593730800000,
+    imgUrl: 'https://i.imgur.com/JVKwgUX.jpeg',
+    type: 'heart',
+    success: true
+  },
 ]
 
 export default coffeeList;

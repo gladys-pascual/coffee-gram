@@ -11,7 +11,7 @@ class App extends Component {
     super(props);
     this.state = {
       selection: 'success',
-      coffeeList: []
+      coffeeList: [],
     }
   }
 
@@ -27,11 +27,13 @@ class App extends Component {
     let matchedCoffee;
     if (this.state.selection === 'success') {
       matchedCoffee = this.state.coffeeList.filter(coffee => coffee.success === true)
+      matchedCoffee.sort((a, b) => b.date - a.date)
     } else if (this.state.selection === 'all') {
       matchedCoffee = this.state.coffeeList;
     }
     else {
       matchedCoffee = this.state.coffeeList.filter(coffee => coffee.type === this.state.selection)
+      matchedCoffee.sort((a, b) => b.date - a.date)
     }
     return matchedCoffee;
   }
