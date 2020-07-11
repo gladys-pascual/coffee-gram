@@ -38,29 +38,6 @@ class App extends Component {
     return matchedCoffee;
   }
 
-
-
-  // handleDateChoice = (event) => {
-  //   this.setState({ selection: event.target.value })
-  // }
-
-  // chooseDate = () => {
-  //   let selectedCoffee;
-  //   if (this.state.selection === 'all') {
-  //     selectedCoffee = this.state.coffeeList
-  //   } else if (this.state.selection === 'Jul - Sep 2019') {
-  //     selectedCoffee = this.state.coffeeList.filter(coffee => {
-  //       return coffee.date >= 1561935600000 && coffee.date <= 1569884399000
-  //     })
-  //   }
-  //   else if (this.state.selection === 'Oct - Dec 2019') {
-  //     selectedCoffee = this.state.coffeeList.filter(coffee => {
-  //       return coffee.date >= 1569884400000 && coffee.date <= 1577836799000
-  //     })
-  //   }
-  //   return selectedCoffee;
-  // }
-
   render() {
     return (
       <section className="app">
@@ -77,18 +54,6 @@ class App extends Component {
           ]}
           handleChoice={this.handleCoffeeChoice}
         />
-        {/* <Dropdown
-          heading={"Choose your timeline"}
-          options={[
-            { label: 'All', value: 'all' },
-            { label: 'Jul - Sep 2019', value: 'Jul - Sep 2019' },
-            { label: 'Oct - Dec 2019', value: 'Oct - Dec 2019' },
-            { label: 'Jan - Mar 2020', value: 'Jan - Mar 2020' },
-            { label: 'Apr - June 2020', value: 'Apr - June 2020' }
-          ]}
-          handleChoice={this.handleDateChoice}
-        /> */}
-
         <CardList coffee={this.chooseCoffee()} />
         <Footer />
       </section>
